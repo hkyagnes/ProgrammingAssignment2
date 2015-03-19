@@ -5,18 +5,22 @@
 ## makeCacheMatrix is a function creates a special "matrix" object that can cache its inverse.
 
 makeCacheMatrix <- function(x = matrix()) {            ### ‘x’ is the input argument, and it is the matrix being inverted
-i <- NULL                                              ### ‘i’ is variable that will store the inverse of the matrix, it is set to be ‘NULL’
+    i <- NULL                                          ### ‘i’ is variable that will store the inverse of the matrix, it 
+                                                       ###  is set to be ‘NULL’
 
-        set <- function(y) {                           ### The ’set’ function is inside the makeCacheMatrix function, ‘y’ will take the argument passed from ‘makeCacheMatrix’
-                x <<- y                                ### Inside ‘set’ function, the value of both ‘x’ and ‘i’ will be assigned to the parent environment (with <<-)  
-                i <<- NULL
-        }
+        set <- function(y) {                           ### The ’set’ function is inside the makeCacheMatrix function, ‘y’ 
+        	     x <<- y                               ### will take the argument passed from ‘makeCacheMatrix’
+                 i <<- NULL                            ### Inside ‘set’ function, the value of both ‘x’ and ‘i’ will be 
+         }                                             ### assigned to the parent environment (with <<-)  
+        
         
         get <- function() x                            ### ‘get’ is an anonymous function which assign the matrix to it
         
-        setinverse <- function(inverse) i <<- inverse  ### The inverse of the matrix is assigned to ’i’ to the parent environment, (the inverse is calculated from cacheSolve function)
+        setinverse <- function(inverse) i <<- inverse  ### The inverse of the matrix is assigned to ’i’ to the parent
+                                                       ### environment, (the inverse is calculated from cacheSolve function)
         
-        getinverse <- function() i                     ### 'getinverse’ is an anonymous function which return the stored inverse of the matrix        
+        getinverse <- function() i                     ### 'getinverse’ is an anonymous function which return the stored 
+                                                       ### inverse of the matrix        
         
 list(set = set, get = get,                             ###Lists of variables inside ‘makeCacheMatrix’
              setinverse = setinverse,
